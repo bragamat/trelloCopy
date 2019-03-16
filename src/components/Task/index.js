@@ -1,11 +1,19 @@
 import React from 'react';
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { TaskCard } from './styles';
 
-const Task = ({ tasks }) =>  (
+import TasksActions from '../../store/ducks/tasks'
+
+const Task = ({ tasks, list, editTaskTitle }) =>  (
   tasks.map(task => (
-      <TaskCard key={task.id} onClick={()=> console.log('editar titulo')}>{task.name}</TaskCard> 
+      <TaskCard key={task.id}>
+        <input type="text" value={task.name} placehoder={task.name} onChange={(e) => editTaskTitle(list.id, task.id, e.target.value)} />
+      </TaskCard> 
     )
   )
 )
-export default Task;
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(TasksActions, dispatch);
+export default connect(null, TasksActions)(Task);

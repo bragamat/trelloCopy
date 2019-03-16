@@ -1,3 +1,5 @@
+"use strict"
+
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 
@@ -10,6 +12,7 @@ const { Types, Creators } = createActions({
   addListSuccess: ['list'],
   addTaskToList: ['id', 'task'],
   addTaskToListSuccess: ['task'],
+  editTaskTitle: ['list_id', 'task_id', 'title']
 })
 
 export const TasksTypes = Types
@@ -20,15 +23,7 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   data: [],
   tasks: [],
-  lists: [
-    { id: Math.random(), name: `First ${Math.random()}`, tasks: [
-      { id:Math.random(), name: `Make Coffee ${Math.random()}`},
-      { id:Math.random(), name: `Make Coffee ${Math.random()}`},
-      { id:Math.random(), name: `Make Coffee ${Math.random()}`},
-      { id:Math.random(), name: `Make Coffee ${Math.random()}`},
-      { id:Math.random(), name: `Make Coffee ${Math.random()}`}]
-    }
-  ]
+  lists: []
 })
 
 /* Reducers */
@@ -37,13 +32,24 @@ export const addList = (state, { list } ) => {
 }
 
 export const addTaskToList = (state, listId, task ) => {
-  console.log(listId)
   return state.merge({ 
     lists: state.lists.map( list => (list.id === listId.id) ? { 
       ...list, tasks: [...list.tasks, listId.task]
     } : list )
   })
 }
+
+export const editTaskTitle = (state, listId, task_id, title ) => {
+  return state.merge({ 
+    lists: state.lists.map( list => (list.id === listId.list_id) ? { 
+      ...list, tasks: list.tasks.map(
+        task => (task.id === listId.task_id ? { id: listId.task_id, name: `${listId.title}` }
+          : task)
+      )
+    } : list )
+  })
+}
+
 
 
 export const getSuccess = (state, { tasks }) => state.merge({ tasks })
@@ -54,5 +60,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.GET_TASKS_SUCCESS]: getSuccess,
   [Types.ADD_LIST_SUCCESS]: addList,
   [Types.ADD_TASK_TO_LIST]: addTaskToList,
-  // [Types.ADD_TASK_TO_LIST_SUCCESS]: addTaskToList,
+  [Types.EDIT_TASK_TITLE]: editTaskTitle,
 })

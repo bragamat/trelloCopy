@@ -13,8 +13,8 @@ const List = ({ lists, addTaskToList }) => {
     {
       lists.map(item => (
         <Lists key={item.id}>
-          <Task tasks={item.tasks}/>
-          <Button size='small' onClick={()=> addTaskToList(item.id, { id: Math.random(), name: `Title:` } )}>
+          <Task tasks={item.tasks} list={item}/>
+          <Button size='small' onClick={()=> addTaskToList(item.id, { id: Math.random(), name: '' } )}>
             Nova Tarefa
           </Button>
         </Lists>
