@@ -6,6 +6,7 @@ import List from '../../components/List'
 import Button from '../../styles/components/Button'
 
 import TasksActions from '../../store/ducks/tasks'
+import AuthActions from '../../store/ducks/auth'
 
 import { connect } from 'react-redux'
 
@@ -18,6 +19,7 @@ class Main extends Component {
   
   render() {
     const { addList } = this.props
+    const { signOut } = this.props
     return(
       <Container>
         <Header>
@@ -25,6 +27,7 @@ class Main extends Component {
             Adicionar Lista    
           </Title>
           <Button onClick={()=> addList()}> + </Button>
+          <Button onClick={()=> signOut()} color="danger"> Sign out </Button>
         </Header>
         <Body>
           <List />
@@ -37,7 +40,8 @@ class Main extends Component {
 }
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(TasksActions, dispatch);
+  bindActionCreators({ ...TasksActions, ...AuthActions }, dispatch);
+  // bindActionCreators(TasksActions, dispatch);
 
 // const mapStateToProps = state => ({
 //   task: tasks

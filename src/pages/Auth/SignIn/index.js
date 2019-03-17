@@ -36,8 +36,7 @@ class SignIn extends Component {
         <SignForm onSubmit={this.handleSubmit}>
           <h1>Boas Vindas</h1>
           <span>E-MAIL</span>
-          <input type="email" name="email" value={email} placeholder="Seu e-mail" onChange={ this.handleInputChange }/>
-
+          <input type="text" name="email" value={email} placeholder="Seu e-mail" onChange={ this.handleInputChange }/>
           <span>SENHA</span>
           <input type="password" name="password" value={password} placeholder="Sua senha" onChange={ this.handleInputChange }/>
           <Button size="big" type="submit">Entrar</Button>

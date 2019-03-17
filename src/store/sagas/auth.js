@@ -6,10 +6,11 @@ import { actions as toastrActions } from 'react-redux-toastr'
 import AuthActions from '../ducks/auth'
 
 export function* signIn ({ email, password }) {
-  
+  console.log(email, password)
   try {
-    // const response = yield call(api.post, 'sessions', { email, password })
-    const token = 'Bearer 178G2B3N1J29038H97G819H2'
+    const response = yield call(api.post, '/sessions', { email, password })
+    const { token } = response.data
+    // const token = 'Bearer 178G2B3N1J29038H97G819H2'
     
     localStorage.setItem('@authToken', token)
 
