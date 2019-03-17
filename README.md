@@ -1,13 +1,14 @@
 ## Technologies
 
-```Reactjs (https://github.com/facebook/react)```
-```Redux (https://github.com/reduxjs/redux)```
-```Redux-saga (https://github.com/redux-saga/redux-saga)```
-```Styled-components (https://github.com/styled-components/styled-components)```
-```axios (https://github.com/axios/axios)```
-```react-router / react-router-dom (https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)```
-```react-redux-toastr (https://github.com/diegoddox/react-redux-toastr)```
-```prop-types (https://github.com/facebook/prop-types)```
+### `Reactjs (https://github.com/facebook/react)`
+### `Redux (https://github.com/reduxjs/redux)`
+### `Redux-saga (https://github.com/redux-saga/redux-saga)`
+### `Styled-components (https://github.com/styled-components/styled-components)`
+### `axios (https://github.com/axios/axios)`
+### `react-router / react-router-dom (https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)`
+
+### `react-redux-toastr (https://github.com/diegoddox/react-redux-toastr)`
+### `prop-types (https://github.com/facebook/prop-types)`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
