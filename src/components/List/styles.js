@@ -15,6 +15,10 @@ export const Lists = styled.li`
 
 `
 
+export const HeadButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
 
 
