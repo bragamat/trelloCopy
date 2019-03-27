@@ -7,6 +7,7 @@ import { TaskCard } from './styles';
 import TasksActions from '../../store/ducks/tasks'
 
 import Button from '../../styles/components/Button'
+
 const Task = ({ tasks, list, editTaskTitle, deleteTaskFromList }) =>  (
   tasks.map(task => (
       <TaskCard key={task.id}>

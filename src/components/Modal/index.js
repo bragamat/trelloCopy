@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 
 import { Container, Content } from './styles';
+
 const Modal = ({ children, size }) => (
   <Container>
     <Content size={size}>{ children }</Content>
