@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 
 import Modal from '../../components/Modal'
 
-describe('Modal Stuff', () => {
+describe('Modal', () => {
   let spy = spyConsole();
   it('should render a Modal', () => {
     const wrapper = mount(<Modal children={<h1></h1>} />)
@@ -13,17 +13,11 @@ describe('Modal Stuff', () => {
     const wrapper = mount(<Modal children={<h1></h1>} />)
     expect(wrapper.contains(<h1></h1>)).toBe(true)
   })
-
   it('Should warning about the propTypes', () => {
     mount(<Modal />)
     expect(console.error).toHaveBeenCalled();
   })
-
 })
-
-
-
-
 
 function spyConsole() {
   // https://github.com/facebook/react/issues/7047
